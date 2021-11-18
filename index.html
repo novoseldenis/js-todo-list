@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do</title>
+</head>
+
+<body>
+
+    <form>
+        <input id="todo-item">
+        <button id="btnAdd" type="submit">Add to the list</button>
+    </form>
+
+
+
+    <style>
+        table {
+            border: 2px solid black;
+            margin-top: 20px;
+        }
+
+        th {
+            border: 1px solid black;
+            font-style: bold;
+        }
+
+        td {
+            border: 1px solid black;
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        tr {
+            margin: 0px;
+        }
+    </style>
+
+    <table id="todo-table">
+        <th>Index</th>
+        <th>ToDo item</th>
+        <th>Action</th>
+    </table>
+
+    <script>
+        let inputItem = document.getElementById("todo-item");
+        let button = document.getElementById("btnAdd");
+        let ol = document.getElementById("todo-list");
+        let tbl = document.getElementById("todo-table");
+
+        let list_items = [];
+
+
+
+        window.onload = function (e) {
+
+            list_items = JSON.parse(localStorage.getItem("todos"));
+
+            for (let i = 0; i < list_items.length; i++) {
+
+                let item = list_items[i];
+                let itemIndex = (i + 1);
+                let tr = document.createElement("tr");
+                let tdIndex = document.createElement("td");
+                let tdItem = document.createElement("td");
+                let tdAction = document.createElement("td");
+
+                tr.appendChild(tdIndex);
+                tr.appendChild(tdItem);
+                tr.appendChild(tdAction);
+                tdIndex.appendChild(document.createTextNode(itemIndex));
+                tdItem.appendChild(document.createTextNode(item));
+                tbl.appendChild(tr);
+
+            }
+
+        }
+
+
+
+
+
+
+        document.querySelector("#btnAdd").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (!isBlank(inputItem.value)) {
+                addItemToList(inputItem.value);
+
+
+
+            } else {
+                inputItem.style.borderColor = "red";
+            }
+
+
+        }, false);
+
+
+        function addItemToList(itemToAdd) {
+            let tr = document.createElement("tr");
+            let tdIndex = document.createElement("td");
+            let tdItem = document.createElement("td");
+            let tdAction = document.createElement("td");
+            let newIndex = (list_items.length + 1);
+
+            tr.appendChild(tdIndex);
+            tr.appendChild(tdItem);
+            tr.appendChild(tdAction);
+            tdIndex.appendChild(document.createTextNode(newIndex));
+            tdItem.appendChild(document.createTextNode(itemToAdd));
+            tbl.appendChild(tr);
+
+            list_items.push(itemToAdd);
+
+            localStorage.setItem("todos", JSON.stringify(list_items));
+        }
+
+        function isBlank(str) {
+            return (!str || /^\s*$/.test(str));
+        }
+
+
+    </script>
+
+</body>
+
+</html>
