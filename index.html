@@ -6,21 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-orange.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <title>To do</title>
 </head>
 
 <body>
-    <!-- This form contains single text field and button -->
-    <form>
-        <input id="todo-item">
-        <button id="btnAdd" type="submit">Add to the list</button>
-    </form>
-    <!-- Table with 3 columns - table rows to be added dynamically -->
-    <table id="todo-table">
-        <th>Priority</th>
-        <th>ToDo item</th>
-        <th>Action</th>
-    </table>
+
+    <div class="mdl-grid">
+
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--3-offset">
+            <!-- This form contains single text field and button -->
+            <form>
+                <input id="todo-item">
+                <button id="btnAdd" type="submit">Add to the list</button>
+            </form>
+            <!-- Table with 3 columns - table rows are added dynamically -->
+            <table id="todo-table" class="mdl-data-table mdl-js-data-table">
+                <th
+                    class="mdl-data-table__cell--numeric mdl-typography--title mdl-typography--text-uppercase mdl-typography--text-center">
+                    Priority
+                </th>
+                <th
+                    class="mdl-data-table__cell--non-numeric mdl-typography--title mdl-typography--text-uppercase mdl-typography--text-center fullwidth">
+                    ToDo item</th>
+                <th
+                    class="mdl-data-table__cell--non-numeric mdl-typography--title mdl-typography--text-uppercase mdl-typography--text-center">
+                    Action</th>
+            </table>
+        </div>
+    </div>
+
+
+
+
 
     <script src="js/main.js"></script>
 

@@ -22,6 +22,7 @@ window.onload = function (e) {
         let tr = document.createElement("tr");
         let tdIndex = document.createElement("td");
         let tdItem = document.createElement("td");
+        tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-center";
         let tdAction = document.createElement("td");
 
         //Build delete button
@@ -148,6 +149,7 @@ function addItemToList(itemToAdd) {
     let tr = document.createElement("tr");
     let tdIndex = document.createElement("td");
     let tdItem = document.createElement("td");
+    tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-left";
     let tdAction = document.createElement("td");
     let newIndex = (list_items.length + 1);
     //append table data to table row
@@ -203,7 +205,7 @@ function addItemToList(itemToAdd) {
         }
     }
 
-    btnDownItem.onclick = function (e) {
+    btnDown.onclick = function (e) {
         if (list_items.length > 1) {
             if (newIndex < list_items.length) {
                 //establish "i" value of new item
