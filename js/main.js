@@ -22,14 +22,14 @@ window.onload = function (e) {
         let tr = document.createElement("tr");
         let tdIndex = document.createElement("td");
         let tdItem = document.createElement("td");
-        tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-center";
+        tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-center tbl-word-wrap";
         let tdAction = document.createElement("td");
 
         //Build delete button
         let btnDelete = document.createElement('input');
         btnDelete.type = "button";
-        btnDelete.className = "btnAction";
-        btnDelete.value = "🛑";
+        btnDelete.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+        btnDelete.value = "Delete";
         btnDelete.alt = "Delete item";
 
         //Delete item button logic
@@ -43,9 +43,9 @@ window.onload = function (e) {
         //Prioritize item button logic
         let btnUpItem = document.createElement('input');
         btnUpItem.type = "button";
-        btnUpItem.className = "btnAction";
-        btnUpItem.value = "⬆️";
-        btnUpItem.alt = "Up";
+        btnUpItem.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+        btnUpItem.value = "Prioritize";
+        btnUpItem.alt = "Priority up";
 
         btnUpItem.onclick = function (e) {
             if (list_items.length > 1) {
@@ -80,9 +80,9 @@ window.onload = function (e) {
         //De-prioritize item button logic
         let btnDownItem = document.createElement('input');
         btnDownItem.type = "button";
-        btnDownItem.className = "btnAction";
-        btnDownItem.value = "⬇️";
-        btnDownItem.alt = "Down";
+        btnDownItem.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+        btnDownItem.value = "De-prioritize";
+        btnDownItem.alt = "Priority down";
         btnDownItem.onclick = function (e) {
             if (list_items.length > 1) {
                 if (i + 1 < list_items.length) {
@@ -149,7 +149,7 @@ function addItemToList(itemToAdd) {
     let tr = document.createElement("tr");
     let tdIndex = document.createElement("td");
     let tdItem = document.createElement("td");
-    tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-left";
+    tdItem.className = "mdl-typography--body-1 mdl-typography--text-uppercase mdl-typography--text-center tbl-word-wrap";
     let tdAction = document.createElement("td");
     let newIndex = (list_items.length + 1);
     //append table data to table row
@@ -258,19 +258,22 @@ function addActionButtons(btnDelete, btnUp, btnDown) {
     //Build delete button
     //btnTemp = document.createElement('input');
     btnDelete.type = "button";
-    btnDelete.className = "btnAction";
-    btnDelete.value = "🛑";
+    btnDelete.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+    btnDelete.value = "Delete";
+    //btnDelete.innerHTML = '<i class="material - icons">add</i>';
     btnDelete.alt = "Delete item";
     //Prioritize item button logic
     //btnUpItem = document.createElement('input');
     btnUp.type = "button";
-    btnUp.className = "btnAction";
-    btnUp.value = "⬆️";
+    btnUp.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+    btnUp.value = "Prioritize";
     btnUp.alt = "Priority up";
     //De-prioritize item button logic
     //let btnDownItem = document.createElement('input');
     btnDown.type = "button";
-    btnDown.className = "btnAction";
-    btnDown.value = "⬇️";
+    btnDown.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+    btnDown.value = "De-prioritize";
     btnDown.alt = "Priority down";
+
+
 }
