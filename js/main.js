@@ -7,6 +7,9 @@ let tbl = document.getElementById("todo-table");
 //Initializing empty array for storing table data
 let list_items = [];
 
+//Toast message
+var snackbarContainer = document.querySelector('#toast-message');
+
 //functionality to execute on windows loading
 window.onload = function (e) {
 
@@ -70,10 +73,15 @@ window.onload = function (e) {
                     localStorage.setItem("todos", JSON.stringify(list_items));
 
                 } else {
-                    alert("Item is already in the first position.");
+                    //alert("Item is already in the first position.");
+
+                    var data = { message: 'Item is already in the first position.' };
+                    snackbarContainer.MaterialSnackbar.showSnackbar(data);
                 }
             } else {
-                alert("There is only one item in the list.");
+                //alert("There is only one item in the list.");
+                var data = { message: 'There is only one item in the list.' };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
             }
 
         }
@@ -105,10 +113,14 @@ window.onload = function (e) {
                     localStorage.setItem("todos", JSON.stringify(list_items));
 
                 } else {
-                    alert("Item is already in the last position.");
+                    //alert("Item is already in the last position.");
+                    var data = { message: 'Item is already in the last position.' };
+                    snackbarContainer.MaterialSnackbar.showSnackbar(data);
                 }
             } else {
-                alert("There is only one item in the list.");
+                //alert("There is only one item in the list.");
+                var data = { message: 'There is only one item in the list.' };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
             }
         }
 
@@ -138,7 +150,7 @@ document.querySelector("#btnAdd").addEventListener("click", function (event) {
         addItemToList(inputItem.value);
     } else {
         //placeholder styling
-        inputItem.style.borderColor = "red";
+        //inputItem.style.borderColor = "red";
     }
 
 }, false);

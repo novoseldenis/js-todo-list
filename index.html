@@ -20,8 +20,17 @@
         <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset">
             <!-- This form contains single text field and button -->
             <form>
-                <input id="todo-item">
-                <button id="btnAdd" type="submit">Add to the list</button>
+                <!--<input id="todo-item"> -->
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="todo-item">
+                    <label class="mdl-textfield__label" for="todo-item">Text</label>
+                </div>
+                <button id="btnAdd"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Add
+                </button>
+
+                <!-- <button id="btnAdd" type="submit">Add to the list</button> -->
             </form>
             <!-- Table with 3 columns - table rows are added dynamically -->
             <table id="todo-table" class="mdl-data-table mdl-js-data-table fullwidth">
@@ -36,6 +45,11 @@
                     class="mdl-data-table__cell--non-numeric mdl-typography--title mdl-typography--text-uppercase mdl-typography--text-center">
                     Action</th>
             </table>
+
+            <div id="toast-message" class="mdl-js-snackbar mdl-snackbar">
+                <div class="mdl-snackbar__text"></div>
+                <button class="mdl-snackbar__action" type="button"></button>
+            </div>
         </div>
     </div>
 
