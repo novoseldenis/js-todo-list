@@ -31,9 +31,19 @@ window.onload = function (e) {
         //Build delete button
         let btnDelete = document.createElement('input');
         btnDelete.type = "button";
-        btnDelete.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+        btnDelete.className = "mdl-button mdl-js-button mdl-button--primary";
         btnDelete.value = "Delete";
         btnDelete.alt = "Delete item";
+
+        /*
+        //For some strange reason when I create "i" or "span" element with MDL icon class it does not show within the button inside
+        //of TD element, but shows if I create it outside of the table.
+        //Override of the color does not help.
+        let iconAdd = document.createElement("i");
+        iconAdd.className = "material-icons";
+        iconAdd.innerHTML = "face";
+        btnDelete.appendChild(iconAdd);
+        */
 
         //Delete item button logic
         btnDelete.onclick = function (e) {
@@ -46,8 +56,9 @@ window.onload = function (e) {
         //Prioritize item button logic
         let btnUpItem = document.createElement('input');
         btnUpItem.type = "button";
-        btnUpItem.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
-        btnUpItem.value = "Prioritize";
+        btnUpItem.className = "mdl-button mdl-js-button mdl-button--accent";
+        //btnUpItem.value = "Prioritize";
+        btnUpItem.value = "Up";
         btnUpItem.alt = "Priority up";
 
         btnUpItem.onclick = function (e) {
@@ -88,8 +99,9 @@ window.onload = function (e) {
         //De-prioritize item button logic
         let btnDownItem = document.createElement('input');
         btnDownItem.type = "button";
-        btnDownItem.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
-        btnDownItem.value = "De-prioritize";
+        btnDownItem.className = "mdl-button mdl-js-button mdl-button--accent";
+        //btnDownItem.value = "De-prioritize";
+        btnDownItem.value = "Down";
         btnDownItem.alt = "Priority down";
         btnDownItem.onclick = function (e) {
             if (list_items.length > 1) {
@@ -148,9 +160,10 @@ document.querySelector("#btnAdd").addEventListener("click", function (event) {
     //Check if the input is blank
     if (!isBlank(inputItem.value)) {
         addItemToList(inputItem.value);
+        inputItem.value = "";
     } else {
-        //placeholder styling
-        //inputItem.style.borderColor = "red";
+        var data = { message: 'Input value cannot be blank.' };
+        snackbarContainer.MaterialSnackbar.showSnackbar(data);
     }
 
 }, false);
@@ -210,10 +223,12 @@ function addItemToList(itemToAdd) {
                 localStorage.setItem("todos", JSON.stringify(list_items));
 
             } else {
-                alert("Item is already in the first position.");
+                var data = { message: 'Item is already in the first position.' };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
             }
         } else {
-            alert("There is only one item in the list.");
+            var data = { message: 'There is only one item in the list.' };
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
         }
     }
 
@@ -241,10 +256,12 @@ function addItemToList(itemToAdd) {
                 localStorage.setItem("todos", JSON.stringify(list_items));
 
             } else {
-                alert("Item is already in the last position.");
+                var data = { message: 'Item is already in the first position.' };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
             }
         } else {
-            alert("There is only one item in the list.");
+            var data = { message: 'There is only one item in the list.' };
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
         }
     }
 
@@ -258,6 +275,8 @@ function addItemToList(itemToAdd) {
     list_items.push(itemToAdd);
     //save the array in the local storage
     localStorage.setItem("todos", JSON.stringify(list_items));
+
+
 }
 
 //Credit for the below function - thanks @Jano González
@@ -270,21 +289,23 @@ function addActionButtons(btnDelete, btnUp, btnDown) {
     //Build delete button
     //btnTemp = document.createElement('input');
     btnDelete.type = "button";
-    btnDelete.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
+    btnDelete.className = "mdl-button mdl-js-button mdl-button--primary";
     btnDelete.value = "Delete";
     //btnDelete.innerHTML = '<i class="material - icons">add</i>';
     btnDelete.alt = "Delete item";
     //Prioritize item button logic
     //btnUpItem = document.createElement('input');
     btnUp.type = "button";
-    btnUp.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
-    btnUp.value = "Prioritize";
+    btnUp.className = "mdl-button mdl-js-button mdl-button--accent";
+    //btnUp.value = "Prioritize";
+    btnUp.value = "Up";
     btnUp.alt = "Priority up";
     //De-prioritize item button logic
     //let btnDownItem = document.createElement('input');
     btnDown.type = "button";
-    btnDown.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mar-left-right";
-    btnDown.value = "De-prioritize";
+    btnDown.className = "mdl-button mdl-js-button mdl-button--accent";
+    //btnDown.value = "De-prioritize";
+    btnDown.value = "Down";
     btnDown.alt = "Priority down";
 
 

@@ -32,3 +32,29 @@ table {
     margin-right:auto !important;
     
 }
+
+i {
+    color:white !important;
+}
+
+.mdl-textfield {
+    width: 100% !important;
+    
+}
+
+.mdl-textfield__input {
+    width: 75% !important;
+}
+
+.mdl-textfield--floating-label {
+    left: 10% !important;
+    width: 70% !important;
+}
+
+.mdl-js-textfield {
+    width: 80% !important;
+}
+
+#btnAdd {
+    right: 0px;;
+}
