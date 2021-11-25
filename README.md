@@ -25,3 +25,9 @@ Might use Sass, tried it once when doing RoR project in 4th year of college, it 
 **24 NOV 21**
 Starting with the design. I'll use Material Design Lite as my CSS library. Used MD while developing Android app for final project in the last year of college. 
 We'll see what I make of it.
+
+**25 NOV 21**
+That's about it. I don't think I will work on this repository any more. It was a fun task to get back to JavaScript first time after college and actually first time after I expressed interest into it. 
+I was and still am mostly focused on Java but I do enjoy JavaScript more - there are so many possibilities to discover and I can't wait to dive even deeper. 
+Once I get more comfortable I might fork this repo and use some framework to rebuild this. 
+Looking forward to it 😊😊
